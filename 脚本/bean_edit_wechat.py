@@ -39,9 +39,9 @@ def parse_service_fee(remark_str):
 def classify_expense(row):
     counterparty = str(row["交易对方"])
     product      = str(row["商品"])
-    if "示例洗衣" in counterparty:         return "Expenses:Service:Dorm:Laundry"
+    if "示例洗衣" in counterparty:         return "Expenses:Service"
     if "示例机构" in counterparty:
-        return "Expenses:Food:DiningHall" if "餐" in product else "Expenses:Service:Misc"
+        return "Expenses:Food" if "餐" in product else "Expenses:Service"
     return ACCOUNTS["unknown_expense"]
 
 def resolve_income_account(row):
@@ -115,7 +115,7 @@ def main():
         elif flow == "收入":
             asset_acc = resolve_income_account(row)
             # 对端账户按交易类型路由（不再一律 Expenses:Unknown）：
-            #   微信红包 → Income:Luck
+            #   微信红包 → Income:Other
             #   群收款/转账/二维码收款 → Equity:Transfer（个人之间结算/代收付，非真实收入）
             #   其余 → Income:Unknown（待 reclassifier 细化）
             if "红包" in tx_type:
@@ -155,7 +155,7 @@ def main():
 
             entry_lines.append(f'  {to_acc:<55} {net_amount:>10.2f} CNY')
             if fee > 0:
-                entry_lines.append(f'  {"Expenses:Service:Fees":<55} {fee:>10.2f} CNY')
+                entry_lines.append(f'  {"Expenses:Fees":<55} {fee:>10.2f} CNY')
             entry_lines.append(f'  {from_acc:<55} {-amount:>10.2f} CNY')
             rows_processed.add(orig_idx)
 

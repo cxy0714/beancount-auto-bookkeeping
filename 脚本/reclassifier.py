@@ -41,7 +41,7 @@ def extract_meta(block: str) -> dict:
     hm = re.findall(r'"([^"]*)"', header)
     if hm:
         meta.setdefault("payee_raw", hm[0])
-    # 从 Expenses 行提取金额，如: "  Expenses:Food:Delivery   88.00 CNY"
+    # 从 Expenses 行提取金额，如: "  Expenses:Food   88.00 CNY"
     amount_m = re.search(r'^\s+Expenses(?::\w+)+\s+([\d,]+\.?\d*)\s+CNY', block, re.MULTILINE)
     if amount_m:
         meta["amount"] = float(amount_m.group(1).replace(',', ''))

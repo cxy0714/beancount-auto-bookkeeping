@@ -13,8 +13,8 @@
   remark: "虚拟基金申购"
   source: "支付宝"
   Assets:Invest:Fund:Pending                                  999.00 CNY
-  Expenses:Invest:Fee                                           1.00 CNY
-  Assets:Cash:Bank:BankA:1001:CNY                           -1000.00 CNY
+  Expenses:Fees                                                 1.00 CNY
+  Assets:Cash:Bank:BankA:Checking                           -1000.00 CNY
 
 2025-01-08 * "示例基金公司" "示例稳健基金A-买入-确认"
   confirm_date: "2025-01-08"

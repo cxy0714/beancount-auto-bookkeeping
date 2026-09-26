@@ -32,48 +32,48 @@ FUND_NAV_API_URL = "https://api.fund.eastmoney.com/f10/lsjz?fundCode={fund_code}
 # ────────────────────────────────────────────────────────────
 ACCOUNTS = {
     # 资产
-    "bank_1001":        "Assets:Cash:Bank:BankA:1001:CNY",
-    "bank_1001_eur":    "Assets:Cash:Bank:BankA:1001:EUR",
-    "bank_1001_usd":    "Assets:Cash:Bank:BankA:1001:USD",
-    "bank_1002":        "Assets:Cash:Bank:BankA:1002",
-    "bank_1003":        "Assets:Cash:Bank:BankA:1003",
-    "bank_1003_eur":    "Assets:Cash:Bank:BankA:1003:EUR",
-    "bank_1003_usd":    "Assets:Cash:Bank:BankA:1003:USD",
-    "bank_2001":        "Assets:Cash:Bank:BankB:2001",
-    "bank_3001":        "Assets:Cash:Bank:BankC:3001",
-    "alipay_yuebao":    "Assets:Cash:Alipay:YuEBao",
-    "alipay_yue":       "Assets:Cash:Alipay:YuE",
-    "wechat_lingqian":  "Assets:Cash:Wechat:LingQian",
-    "wechat_lingqiantong": "Assets:Cash:Wechat:LingQianTong",
-    "jd_xiaojinku":     "Assets:Cash:Jingdong:XiaoJinKu",
-    "jd_yue":           "Assets:Cash:Jingdong:YuE",
-    "ride":             "Assets:Activity:Ride",
+    "bank_1001":        "Assets:Cash:Bank:BankA:Checking",
+    "bank_1001_eur":    "Assets:Cash:Bank:BankA:EUR",
+    "bank_1001_usd":    "Assets:Cash:Bank:BankA:USD",
+    "bank_1002":        "Assets:Cash:Bank:BankA:Savings",
+    "bank_1003":        "Assets:Cash:Bank:BankA:Foreign",
+    "bank_1003_eur":    "Assets:Cash:Bank:BankA:Foreign:EUR",
+    "bank_1003_usd":    "Assets:Cash:Bank:BankA:Foreign:USD",
+    "bank_2001":        "Assets:Cash:Bank:BankB:Checking",
+    "bank_3001":        "Assets:Cash:Bank:BankC:Checking",
+    "alipay_yuebao":    "Assets:Cash:Alipay:Savings",
+    "alipay_yue":       "Assets:Cash:Alipay:Balance",
+    "wechat_lingqian":  "Assets:Cash:WeChat:Balance",
+    "wechat_lingqiantong": "Assets:Cash:WeChat:Savings",
+    "jd_xiaojinku":     "Assets:Cash:JD:Savings",
+    "jd_yue":           "Assets:Cash:JD:Balance",
+    "ride":             "Assets:Prepaid:Transit",
 
     # 负债
-    "credit_9001":      "Liabilities:CreditCard:9001:CNY",
-    "huabei":           "Liabilities:HuaBei",
-    "jd_xianxianghoufu": "Liabilities:Jingdong:XianXiangHouFu",
-    "jd_baitiao":       "Liabilities:Jingdong:BaiTiao",
-    "meituan_yuefu":    "Liabilities:Meituan:Yuefu",
+    "credit_9001":      "Liabilities:CreditCard:CNY",
+    "huabei":           "Liabilities:ConsumerCredit",
+    "jd_xianxianghoufu": "Liabilities:ConsumerCredit",
+    "jd_baitiao":       "Liabilities:ConsumerCredit",
+    "meituan_yuefu":    "Liabilities:ConsumerCredit",
 
     # 收入
     "income_salary":    "Income:Salary",
     "income_refund":    "Income:Refund",
-    "income_invest":    "Income:Invest:Capital-Gains",
-    "income_luck":      "Income:Luck",
-    "income_fx":        "Income:FX",
+    "income_invest":    "Income:Investment",
+    "income_luck":      "Income:Other",
+    "income_fx":        "Income:Exchange",
 
     # 权益（占位）
-    "equity_transfer":  "Equity:Transfer:Misc",
+    "equity_transfer":  "Equity:Transfer",
     "equity_opening":   "Equity:Opening-Balances",
     "equity_rounding":  "Equity:Rounding",
-    "equity_family":    "Equity:Family",
-    "equity_ride":      "Equity:RideBalances",
+    "equity_family":    "Equity:Internal",
+    "equity_ride":      "Equity:Prepaid",
 
     # 基金中转账户
     "fund_pending":      "Assets:Invest:Fund:Pending",
     "fund_sale_pending": "Assets:Invest:Fund:SalePending",
-    "invest_fee":        "Expenses:Invest:Fee",
+    "invest_fee":        "Expenses:Fees",
 
     # 未知占位（手动修正用）
     "unknown_expense":  "Expenses:Unknown",
@@ -173,7 +173,7 @@ PAYMENT_RULES_COMMON = [
 
 # 支付宝专属支付方式
 PAYMENT_RULES_ALIPAY = [
-    ("亲情卡",          ACCOUNTS["equity_family"]),  # 亲情账户示例：家庭内部结算 → Equity:Family
+    ("亲情卡",          ACCOUNTS["equity_family"]),  # 亲情账户示例：家庭内部结算 → Equity:Internal
     ("花呗",            ACCOUNTS["huabei"]),
     ("余额宝",          ACCOUNTS["alipay_yuebao"]),
     ("账户余额",        ACCOUNTS["alipay_yue"]),
@@ -268,17 +268,17 @@ def get_payment_account(payment_text: str, source: str = "all") -> str:
 # 默认账户原则：必须用底层子类（account.bean 已声明），未匹配 reclassifier
 # 规则的条目落入对应 :Misc。
 ALIPAY_EXPENSE_MAP = {
-    "餐饮美食":  "Expenses:Food:Misc",
-    "日用百货":  "Expenses:Shopping:Daily:Misc",
-    "服饰装扮":  "Expenses:Shopping:Clothing:Misc",
-    "交通出行":  "Expenses:Transport:Misc",
-    "酒店旅游":  "Expenses:Travel:Misc",
-    "生活服务":  "Expenses:Service:Misc",
-    "商业服务":  "Expenses:Service:Misc",
-    "公共服务":  "Expenses:Service:Misc",
-    "充值缴费":  "Expenses:Service:Utility",
-    "文化休闲":  "Expenses:Entertainment:Misc",
-    "美容美发":  "Expenses:Beauty:Misc",
+    "餐饮美食":  "Expenses:Food",
+    "日用百货":  "Expenses:Shopping",
+    "服饰装扮":  "Expenses:Shopping",
+    "交通出行":  "Expenses:Transport",
+    "酒店旅游":  "Expenses:Travel",
+    "生活服务":  "Expenses:Service",
+    "商业服务":  "Expenses:Service",
+    "公共服务":  "Expenses:Service",
+    "充值缴费":  "Expenses:Service",
+    "文化休闲":  "Expenses:Entertainment",
+    "美容美发":  "Expenses:Beauty",
     "保险":      "Expenses:Insurance",
     "信用借还":  ACCOUNTS["equity_transfer"],
     "转账红包":  ACCOUNTS["equity_transfer"],
@@ -288,11 +288,11 @@ ALIPAY_EXPENSE_MAP = {
 # 京东交易分类 → 支出账户
 # ────────────────────────────────────────────────────────────
 JINGDONG_EXPENSE_MAP_KEYWORDS = [
-    ("食品酒",   "Expenses:Food:Grocery"),
-    ("美妆个护", "Expenses:Beauty:Products"),
-    ("医疗保健", "Expenses:Service:Medical"),
+    ("食品酒",   "Expenses:Food"),
+    ("美妆个护", "Expenses:Beauty"),
+    ("医疗保健", "Expenses:Health"),
 ]
-JINGDONG_EXPENSE_DEFAULT = "Expenses:Shopping:Misc"
+JINGDONG_EXPENSE_DEFAULT = "Expenses:Shopping"
 
 
 def get_jingdong_expense_account(trade_type: str) -> str:

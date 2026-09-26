@@ -24,8 +24,8 @@
   goods: "示例餐厅"
   flow: "支出"
   status: "交易成功"
-  source: "示例银行C3001"
-  Assets:Cash:Bank:BankC:3001                                 -30.00 CNY
+  source: "示例银行C"
+  Assets:Cash:Bank:BankC:Checking                             -30.00 CNY
   Equity:Unknown
 
 2025-01-15 * "示例用户" "示例机构"
@@ -35,6 +35,6 @@
   goods: "示例机构"
   flow: "收入"
   status: "交易成功"
-  source: "示例银行C3001"
-  Assets:Cash:Bank:BankC:3001                                 500.00 CNY
-  Equity:Transfer:Misc                                       -500.00 CNY
+  source: "示例银行C"
+  Assets:Cash:Bank:BankC:Checking                             500.00 CNY
+  Equity:Transfer                                            -500.00 CNY

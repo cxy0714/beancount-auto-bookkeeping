@@ -12,26 +12,26 @@
 rules:
   - desc: 虚拟规则 - 咖啡店
     payee_contains: [示例咖啡]
-    new_account: Expenses:Food:Coffee
+    new_account: Expenses:Food
 
   - desc: 虚拟规则 - 超市生鲜
     payee_contains: [示例超市, 示例生鲜]
-    new_account: Expenses:Food:Grocery
+    new_account: Expenses:Food
 
   - desc: 虚拟规则 - 餐厅堂食
     payee_contains: [示例餐厅]
-    new_account: Expenses:Food:Restaurant
+    new_account: Expenses:Food
 
   - desc: 虚拟规则 - 地铁公交
     payee_contains: [示例地铁, 示例公交]
-    new_account: Expenses:Transport:Transit
+    new_account: Expenses:Transport
 
   - desc: 虚拟规则 - 书店
     payee_contains: [示例书店]
-    new_account: Expenses:Entertainment:Culture:Book
+    new_account: Expenses:Entertainment
 
   - desc: 虚拟规则 - 影音会员
     payee_contains: [示例影音]
     goods_contains: [会员, 订阅]
     match_mode: payee_AND_goods
-    new_account: Expenses:Service:Subscription:Media
+    new_account: Expenses:Entertainment

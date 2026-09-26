@@ -17,8 +17,8 @@
   flow: "支出"
   status: "支付成功"
   source: "微信"
-  Expenses:Entertainment:Culture:Book                                             40.00 CNY
-  Assets:Cash:Wechat:LingQian
+  Expenses:Entertainment                                             40.00 CNY
+  Assets:Cash:WeChat:Balance
 
 2025-01-11 * "示例餐厅" "午餐"
   time: "2025-01-11 12:30:00"
@@ -28,8 +28,8 @@
   flow: "支出"
   status: "支付成功"
   source: "微信"
-  Expenses:Food:Restaurant                                             30.00 CNY
-  Assets:Cash:Wechat:LingQian
+  Expenses:Food                                             30.00 CNY
+  Assets:Cash:WeChat:Balance
 
 2025-01-15 * "示例用户" "红包"
   time: "2025-01-15 09:00:00"
@@ -39,5 +39,5 @@
   flow: "收入"
   status: "支付成功"
   source: "微信"
-  Assets:Cash:Wechat:LingQian                                  50.00 CNY
-  Equity:Transfer:Misc
+  Assets:Cash:WeChat:Balance                                   50.00 CNY
+  Equity:Transfer

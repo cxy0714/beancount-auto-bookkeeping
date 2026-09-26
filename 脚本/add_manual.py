@@ -23,69 +23,39 @@ MANUAL_BEAN = ROOT / "bean_files" / "manual.bean"
 # ────────────────────────────────────────────────────────────
 
 PAYMENT_ACCOUNTS = [
-    ("示例银行A 1001 (CNY)",    "Assets:Cash:Bank:BankA:1001:CNY"),
-    ("支付宝余额宝",        "Assets:Cash:Alipay:YuEBao"),
-    ("支付宝余额",          "Assets:Cash:Alipay:YuE"),
-    ("微信零钱",            "Assets:Cash:Wechat:LingQian"),
-    ("微信零钱通",          "Assets:Cash:Wechat:LingQianTong"),
-    ("示例银行A信用卡 9001",     "Liabilities:CreditCard:9001:CNY"),
-    ("花呗",                "Liabilities:HuaBei"),
-    ("京东白条",            "Liabilities:Jingdong:BaiTiao"),
-    ("京东先享后付",        "Liabilities:Jingdong:XianXiangHouFu"),
+    ("示例银行A 储蓄卡", "Assets:Cash:Bank:BankA:Checking"),
+    ("示例银行A 信用卡", "Liabilities:CreditCard:CNY"),
+    ("支付宝余额",       "Assets:Cash:Alipay:Balance"),
+    ("支付宝理财",       "Assets:Cash:Alipay:Savings"),
+    ("微信余额",         "Assets:Cash:WeChat:Balance"),
+    ("微信理财",         "Assets:Cash:WeChat:Savings"),
+    ("消费信贷",         "Liabilities:ConsumerCredit"),
 ]
 
 INCOME_ACCOUNTS = [
-    ("工资",                "Income:Salary"),
-    ("退款",                "Income:Refund"),
-    ("红包 / 意外收入",     "Income:Luck"),
-    ("投资收益 / 利息",     "Income:Invest:Capital-Gains"),
-    ("差旅补贴",            "Income:Subsidy:Travel"),
-    ("额外补贴",            "Income:Subsidy:ExtraSalary"),
-    ("差旅报销返还",        "Income:Reimbursement:Travel"),
-    ("其他收入",            "Income:Unknown"),
+    ("工资",             "Income:Salary"),
+    ("退款",             "Income:Refund"),
+    ("投资收益",         "Income:Investment"),
+    ("报销",             "Income:Reimbursement"),
+    ("其他收入",         "Income:Other"),
+    ("未分类收入",       "Income:Unknown"),
 ]
 
 EXPENSE_ACCOUNTS = [
-    ("食堂",                "Expenses:Food:DiningHall"),
-    ("外卖",                "Expenses:Food:Delivery"),
-    ("堂食餐厅",            "Expenses:Food:Restaurant"),
-    ("零食饮料",            "Expenses:Food:Snack"),
-    ("食材生鲜",            "Expenses:Food:Grocery"),
-    ("服装鞋帽",            "Expenses:Shopping:Clothing:Misc"),
-    ("鞋履",                "Expenses:Shopping:Clothing:Shoes"),
-    ("数码家电",            "Expenses:Shopping:Electronics"),
-    ("日用品",              "Expenses:Shopping:Daily:Misc"),
-    ("购物杂项",            "Expenses:Shopping:Misc"),
-    ("单车",                "Expenses:Transport:Ride"),
-    ("打车",                "Expenses:Transport:Taxi"),
-    ("公共交通",            "Expenses:Transport:Transit"),
-    ("高铁 / 火车",         "Expenses:Transport:Train"),
-    ("飞机",                "Expenses:Transport:Airplane"),
-    ("邮寄",                "Expenses:Transport:Mail"),
-    ("水电",                "Expenses:Service:Utility"),
-    ("医疗",                "Expenses:Service:Medical"),
-    ("宿舍洗衣",            "Expenses:Service:Dorm:Laundry"),
-    ("宿舍洗浴",            "Expenses:Service:Dorm:Bath"),
-    ("通讯 / 网络",         "Expenses:Service:Telecom"),
-    ("订阅服务",            "Expenses:Service:Subscription:Misc"),
-    ("签证",                "Expenses:Service:Visa"),
-    ("图书",                "Expenses:Service:Library"),
-    ("手续费",              "Expenses:Service:Fees"),
-    ("证书 / 考试",         "Expenses:Service:Certification"),
-    ("会议",                "Expenses:Service:Conference"),
-    ("游戏",                "Expenses:Entertainment:Game"),
-    ("运动",                "Expenses:Entertainment:Sports"),
-    ("社交娱乐",            "Expenses:Entertainment:Social"),
-    ("社交礼物",            "Expenses:Entertainment:Gift"),
-    ("文化 / 景区",         "Expenses:Entertainment:Culture:Misc"),
-    ("旅行杂项",            "Expenses:Travel:Misc"),
-    ("旅行酒店",            "Expenses:Travel:Hotel"),
-    ("理发",                "Expenses:Beauty:Haircut"),
-    ("护肤品",              "Expenses:Beauty:Products"),
-    ("保险",                "Expenses:Insurance"),
-    ("服务器",              "Expenses:Research:HPC"),
-    ("税款",                "Expenses:Tax"),
-    ("未分类支出",          "Expenses:Unknown"),
+    ("餐饮",             "Expenses:Food"),
+    ("购物",             "Expenses:Shopping"),
+    ("交通",             "Expenses:Transport"),
+    ("旅行",             "Expenses:Travel"),
+    ("娱乐",             "Expenses:Entertainment"),
+    ("美容",             "Expenses:Beauty"),
+    ("健康",             "Expenses:Health"),
+    ("教育",             "Expenses:Education"),
+    ("服务",             "Expenses:Service"),
+    ("保险",             "Expenses:Insurance"),
+    ("手续费",           "Expenses:Fees"),
+    ("税费",             "Expenses:Tax"),
+    ("其他支出",         "Expenses:Other"),
+    ("未分类支出",       "Expenses:Unknown"),
 ]
 
 
@@ -237,9 +207,9 @@ def build_entry_interactive(default_date: str) -> str:
         direction = _ask("方向（1=收入 / 2=支出）:", default="1")
         bank_acct = _choose("银行账户:", PAYMENT_ACCOUNTS)
         if direction == "2":
-            entry = _build_entry(txn_date, payee, narr, "Equity:Family", bank_acct, amount)
+            entry = _build_entry(txn_date, payee, narr, "Equity:Internal", bank_acct, amount)
         else:
-            entry = _build_entry(txn_date, payee, narr, bank_acct, "Equity:Family", amount)
+            entry = _build_entry(txn_date, payee, narr, bank_acct, "Equity:Internal", amount)
 
     else:  # custom
         payee    = _ask("Payee:")

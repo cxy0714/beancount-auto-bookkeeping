@@ -197,7 +197,7 @@ def _txn_to_row(t: dict, card_suffix: str) -> dict:
         "交易单号":   "",
         "商户单号":   account,
         "备注":       "",
-        "数据来源":   f"{BANK_NAME}{card_suffix}",
+        "数据来源":   BANK_NAME,
     }
 
 

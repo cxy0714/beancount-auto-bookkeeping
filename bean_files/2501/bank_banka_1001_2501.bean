@@ -25,9 +25,9 @@
   flow: "支出"
   status: "交易成功"
   remark: "示例支行 | 示例网点"
-  source: "示例银行A1001"
-  Assets:Cash:Bank:BankA:1001:CNY                              -3.00 CNY
-  Expenses:Service:Fees
+  source: "示例银行A"
+  Assets:Cash:Bank:BankA:Checking                              -3.00 CNY
+  Expenses:Fees
 
 2025-01-15 * "示例机构" "补贴收入"
   time: "2025-01-15 09:00:00"
@@ -37,6 +37,6 @@
   flow: "收入"
   status: "交易成功"
   remark: "示例支行 | 示例网点"
-  source: "示例银行A1001"
-  Assets:Cash:Bank:BankA:1001:CNY                            5000.00 CNY
+  source: "示例银行A"
+  Assets:Cash:Bank:BankA:Checking                            5000.00 CNY
   Income:Salary

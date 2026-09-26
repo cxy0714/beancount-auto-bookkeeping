@@ -7,8 +7,9 @@
 > ⚠️ **隐私声明**
 >
 > 本仓库只包含虚拟演示数据。所有用户、商户、银行、卡号、账户、金额和分类规则
-> 均为示例，不对应任何真实个人。请勿把真实账单、真实 `main.bean`、
-> `account.bean`、`rules.yaml` 或日志提交到公开仓库。
+> 均为示例，不对应任何真实个人；账本账户也已统一为普通分类（如
+> `Expenses:Food`、`Expenses:Shopping`、`Assets:Cash:Bank:BankA:Checking`）。
+> 请勿把真实账单、真实 `main.bean`、`account.bean`、`rules.yaml` 或日志提交到公开仓库。
 
 ---
 

@@ -264,7 +264,7 @@ for i, row in df.iterrows():
             bean_lines.append(f'{date} * "{row["交易对方"]}" "{product}"')
             bean_lines.extend(meta)
             bean_lines.append(f'  {ACCOUNTS["alipay_yuebao"]:<55} {amount:>10.2f} CNY\n  {ACCOUNTS["equity_transfer"]:<55} {-amount:>10.2f} CNY\n')
-        # 红包奖励发放到余额宝 → Income:Luck
+        # 红包奖励发放到余额宝 → Income:Other
         elif "红包奖励" in product:
             bean_lines.append(f'{date} * "{row["交易对方"]}" "{product}"')
             bean_lines.extend(meta)

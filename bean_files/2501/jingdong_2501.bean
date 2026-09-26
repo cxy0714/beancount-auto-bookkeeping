@@ -15,8 +15,8 @@
   flow: "支出"
   status: "交易成功"
   source: "京东"
-  Expenses:Food:Grocery                                   66.00 CNY
-  Liabilities:CreditCard:9001:CNY                         -66.00 CNY
+  Expenses:Food                                           66.00 CNY
+  Liabilities:CreditCard:CNY                              -66.00 CNY
 
 2025-01-09 * "示例京东商户" "日用品"
   time: "2025-01-09 11:30:00"
@@ -26,5 +26,5 @@
   flow: "支出"
   status: "交易成功"
   source: "京东"
-  Expenses:Shopping:Misc                                  20.00 CNY
-  Liabilities:CreditCard:9001:CNY                         -20.00 CNY
+  Expenses:Shopping                                       20.00 CNY
+  Liabilities:CreditCard:CNY                              -20.00 CNY

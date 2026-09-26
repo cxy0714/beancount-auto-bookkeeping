@@ -128,7 +128,7 @@ def read_bank_pdf(file_path):
     std['支付方式'] = df[_find_column(df, ['渠道'])] if _find_column(df, ['渠道']) else '银行卡'
     std['当前状态'] = '交易成功'
     card_suffix = (card_full_no or "")[-4:] if card_full_no else "????"
-    std['数据来源'] = f"{BANK_NAME}{card_suffix}"
+    std['数据来源'] = BANK_NAME
 
     account_col = _find_column(df, ['对方卡号/账号', '对方账号', '对方卡号'])
     std['商户单号'] = df[account_col].astype(str).str.strip() if account_col else ''

@@ -19,6 +19,6 @@
   goods: "示例影音会员-年度订阅"
   flow: "支出"
   status: "交易成功"
-  source: "示例银行A信用卡9001"
-  Liabilities:CreditCard:9001:CNY                             -15.00 CNY
-  Expenses:Service:Subscription:Media
+  source: "示例银行A信用卡"
+  Liabilities:CreditCard:CNY                                  -15.00 CNY
+  Expenses:Entertainment

@@ -101,12 +101,12 @@ def read_credit_card_pdf(file_path: Path):
                             '收/支':    direction,
                             '金额(元)': amount,
                             '余额':     None,
-                            '支付方式': f"{BANK_NAME}{CARD_SUFFIX}",
+                            '支付方式': BANK_NAME,
                             '当前状态': "交易成功",
                             '交易单号': '',
                             '商户单号': '',
                             '备注':     '',
-                            '数据来源': f"{BANK_NAME}{CARD_SUFFIX}",
+                            '数据来源': BANK_NAME,
                         })
     except Exception as e:
         print(f"    ❌ PDF 读取失败: {e}")

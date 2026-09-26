@@ -203,7 +203,7 @@ def _process_card(card_id: str, input_path: Path, output_path: Path) -> bool:
             # 信用卡 9001 跨账户来往（如 USD 转入/还款）→ 走 9001 的对应币别子账户
             cc_9001_acc = None
             if "示例用户" in peer and counterparty_acc == "6227000000009001":
-                cc_9001_acc = "Liabilities:CreditCard:9001:USD" if currency == "USD" else CC_9001
+                cc_9001_acc = "Liabilities:CreditCard:USD" if currency == "USD" else CC_9001
 
             entry = [f'{pay_date} * "{peer}" "{desc}"']
             entry.extend(_meta_lines(row))
@@ -239,7 +239,7 @@ def _process_card(card_id: str, input_path: Path, output_path: Path) -> bool:
         elif "结息" in tx_type or "利息" in tx_type:
             target = ACCOUNTS["income_invest"]          # 银行结息 → 利息收入
         elif ("短信" in tx_type and "服务费" in tx_type) or "工本费" in text or "收费" in tx_type:
-            target = "Expenses:Service:Fees"            # 银行短信费 / 开卡工本费 / 收费
+            target = "Expenses:Fees"            # 银行短信费 / 开卡工本费 / 收费
         elif no_skip:
             # 回溯账期：银行流水全量入账，第三方/余额宝划转的对端记 Equity:Transfer，
             # 与支付宝/微信侧（同样改记 Transfer）对冲，避免落 Equity:Unknown。

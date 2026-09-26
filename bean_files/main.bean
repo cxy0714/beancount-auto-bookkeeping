@@ -6,9 +6,9 @@ include "prices.bean"
 
 ; 演示期初余额（虚拟数据）
 2019-01-21 * "期初余额（示例）" "演示账本"
-  Assets:Cash:Bank:BankA:1001:CNY        1000.00 CNY
-  Assets:Cash:Alipay:YuE                   100.00 CNY
-  Assets:Cash:Alipay:YuEBao                500.00 CNY
+  Assets:Cash:Bank:BankA:Checking        1000.00 CNY
+  Assets:Cash:Alipay:Balance                   100.00 CNY
+  Assets:Cash:Alipay:Savings                500.00 CNY
   Equity:Opening-Balances
 
 ; ===== 2501 账期（虚拟演示数据）=====

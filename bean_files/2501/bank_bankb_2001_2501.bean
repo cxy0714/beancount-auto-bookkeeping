@@ -23,8 +23,8 @@
   payee_raw: "示例超市"
   flow: "支出"
   status: "交易成功"
-  source: "示例银行B2001"
-  Assets:Cash:Bank:BankB:2001                                -120.00 CNY
+  source: "示例银行B"
+  Assets:Cash:Bank:BankB:Checking                            -120.00 CNY
   Equity:Unknown
 
 2025-01-11 * "示例用户" "转账"
@@ -33,6 +33,6 @@
   payee_raw: "示例用户"
   flow: "收入"
   status: "交易成功"
-  source: "示例银行B2001"
-  Assets:Cash:Bank:BankB:2001                                 200.00 CNY
+  source: "示例银行B"
+  Assets:Cash:Bank:BankB:Checking                             200.00 CNY
   Equity:Unknown

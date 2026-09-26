@@ -6,8 +6,8 @@
 把 processor_alipay_yue.py 产出的标准化 Excel 转成一个**独立** .bean 文件，
 只补入支付宝 CSV 中缺失（in_csv=False）的余额流水，不触碰任何已生成的账单。
 
-账户路由（主腿恒为 余额 Assets:Cash:Alipay:YuE，对腿按名称/备注分流）：
-  - 余额宝赎回 / 购买理财产品转出  → Assets:Cash:Alipay:YuEBao（纯支付宝内部划转）
+账户路由（主腿恒为 余额 Assets:Cash:Alipay:Balance，对腿按名称/备注分流）：
+  - 余额宝赎回 / 购买理财产品转出  → Assets:Cash:Alipay:Savings（纯支付宝内部划转）
   - 提现 / 转账 / 转出到余额 / 启动资金 → Equity:Transfer（与银行/他人侧对冲，不扰动已对账余额）
   - 支付-xxx                       → Expenses:Unknown（消费，留给 reclassifier 细化）
   - 收钱码收款 / 收款 / 交易退款      → Income:Unknown（进账，留给 reclassifier 细化）

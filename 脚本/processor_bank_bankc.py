@@ -143,7 +143,7 @@ def read_bankc_pdf(file_path):
             "交易单号":  "",
             "商户单号":  rec["account"],
             "备注":      "",
-            "数据来源":  f"{BANK_NAME}{card_suffix}",
+            "数据来源":  BANK_NAME,
         })
 
     df = pd.DataFrame(out, columns=STANDARD_COLUMNS)

@@ -112,15 +112,9 @@ def backcalc_holdings(
 # --- 配置区 ---
 # 1. 贴入你"当前"的、已知的期末持仓（例如 11-21 的余额）
 RAW_END_HOLDINGS = """
-; === 自动倒推生成的期初初始化 (2025-08-21) ===
-; 计算逻辑：期初 = 期末(2509末) - 期间变动
-2025-08-21 * "初始持仓回溯" "已核查，份额正确"
-  Assets:Invest:Fund:FUND001595                   164.5600 FUND001595 {1.7346 CNY}
-  Assets:Invest:Fund:FUND002963                   360.8200 FUND002963 {3.1112 CNY}
-  Assets:Invest:Fund:FUND005693                   249.8400 FUND005693 {1.1490 CNY}
-  Assets:Invest:Fund:FUND006479                    66.00 FUND006479 {6.8182 CNY}
-  Assets:Invest:Fund:FUND007605                   130.8200 FUND007605 {1.3500 CNY}
-  Assets:Invest:Fund:FUND050025                    91.6400 FUND050025 {4.9850 CNY}
+; === 示例期初持仓（虚拟数据） ===
+2025-08-21 * "初始持仓回溯" "示例数据"
+  Assets:Invest:Fund:FUND999999                   100.0000 FUND999999 {1.0000 CNY}
   Equity:Opening-Balances
 """
 
