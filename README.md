@@ -1,8 +1,25 @@
-# Beancount Personal System（公开演示版）
+# Beancount Personal System · 个人自动记账 / 支付宝微信京东银行信用卡账单导入
 
-一个基于 [Beancount](https://beancount.github.io/) 的个人复式记账系统示例：
-把支付宝、微信、京东、银行、信用卡等来源的原始账单，经处理器标准化为 Excel，
-再转换为 Beancount 账本，并完成规则分类、基金净值报告和账本校验。
+一个基于 [Beancount](https://beancount.github.io/) 的个人复式自动记账系统，支持自动解析和导入：
+
+- 支付宝交易明细、余额 / 余额宝流水
+- 微信支付账单
+- 京东交易流水
+- 银行储蓄卡流水（PDF / Excel）
+- 信用卡账单（PDF）
+
+原始账单会先被 processor 标准化为 Excel，再转换为 Beancount 复式账本，并完成规则分类、基金净值报告、Fava 可视化和账本校验。
+
+## 支持的数据源
+
+| 来源 | 账单格式 | 处理结果 |
+|---|---|---|
+| 支付宝 | CSV / PDF | 消费、转账、余额宝、基金申赎 |
+| 微信 | Excel | 零钱、零钱通、收款、转账 |
+| 京东 | CSV | 京东消费、白条、先享后付 |
+| 银行储蓄卡 | PDF / Excel | 人民币 / 外币流水、每日余额 |
+| 信用卡 | PDF | 消费、退款、还款、账单核对 |
+
 
 > ⚠️ **隐私声明**
 >
@@ -154,3 +171,11 @@ python 脚本/fund_report.py
 完整说明见 [`脚本/回溯记账说明.md`](脚本/回溯记账说明.md)。
 
 
+
+---
+
+## 关键词 / Keywords
+
+Beancount 自动记账, 个人记账系统, 复式记账, 支付宝账单导入, 微信支付账单导入, 京东交易流水导入, 银行流水解析, 信用卡账单导入, Fava 中文账本, Python 记账自动化, 回溯记账, 对账脚本.
+
+Beancount, double-entry accounting, personal finance, automated bookkeeping, Alipay statement, WeChat Pay statement, JD.com transactions, bank statement parser, credit card statement parser, Fava, Python automation, plain text accounting.
