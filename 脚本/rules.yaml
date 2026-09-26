@@ -1,0 +1,37 @@
+# ============================================================
+# 演示用消费分类规则（全部为虚拟数据）
+# ============================================================
+# 字段说明：
+#   desc            规则描述（仅用于阅读）
+#   new_account     匹配后替换为的目标账户
+#   match_mode      匹配模式：any / ALL / payee_AND_goods / goods_re ...
+#   payee_contains  交易对方包含任意关键词
+#   goods_contains  商品/摘要包含任意关键词
+# ============================================================
+
+rules:
+  - desc: 虚拟规则 - 咖啡店
+    payee_contains: [示例咖啡]
+    new_account: Expenses:Food:Coffee
+
+  - desc: 虚拟规则 - 超市生鲜
+    payee_contains: [示例超市, 示例生鲜]
+    new_account: Expenses:Food:Grocery
+
+  - desc: 虚拟规则 - 餐厅堂食
+    payee_contains: [示例餐厅]
+    new_account: Expenses:Food:Restaurant
+
+  - desc: 虚拟规则 - 地铁公交
+    payee_contains: [示例地铁, 示例公交]
+    new_account: Expenses:Transport:Transit
+
+  - desc: 虚拟规则 - 书店
+    payee_contains: [示例书店]
+    new_account: Expenses:Entertainment:Culture:Book
+
+  - desc: 虚拟规则 - 影音会员
+    payee_contains: [示例影音]
+    goods_contains: [会员, 订阅]
+    match_mode: payee_AND_goods
+    new_account: Expenses:Service:Subscription:Media

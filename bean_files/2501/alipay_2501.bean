@@ -1,0 +1,54 @@
+; ==================================================
+; 支付宝 2501 自动生成 - 审计面板
+; 1. Excel 原始总行数:     4
+; 2. 骑行卡抵扣行:         0
+; 3. 被过滤行数(交易关闭): 0
+; 4. 普通消费/退款/理财:   4
+; --------------------------------------------------
+; [核对] 4 + 0 + 0 = 4
+; 状态: ✅ 完美对应
+; ==================================================
+
+2025-01-05 * "示例咖啡" "拿铁中杯"
+  time: "2025-01-05 12:00:00"
+  type: "餐饮美食"
+  payee_raw: "示例咖啡"
+  goods: "拿铁中杯"
+  flow: "支出"
+  status: "交易成功"
+  source: "支付宝"
+  Expenses:Food:Coffee                                           25.00 CNY
+  Assets:Cash:Alipay:YuEBao
+
+2025-01-06 * "示例超市" "日用品"
+  time: "2025-01-06 18:30:00"
+  type: "日用百货"
+  payee_raw: "示例超市"
+  goods: "日用品"
+  flow: "支出"
+  status: "交易成功"
+  source: "支付宝"
+  Expenses:Food:Grocery                                 88.00 CNY
+  Assets:Cash:Alipay:YuEBao
+
+2025-01-10 * "示例地铁" "地铁票"
+  time: "2025-01-10 08:00:00"
+  type: "交通出行"
+  payee_raw: "示例地铁"
+  goods: "地铁票"
+  flow: "支出"
+  status: "交易成功"
+  source: "支付宝"
+  Expenses:Transport:Transit                                       4.00 CNY
+  Assets:Cash:Alipay:YuE
+
+2025-01-15 * "示例用户" "朋友转账"
+  time: "2025-01-15 09:00:00"
+  type: "转账红包"
+  payee_raw: "示例用户"
+  goods: "朋友转账"
+  flow: "收入"
+  status: "交易成功"
+  source: "支付宝"
+  Assets:Cash:Alipay:YuE                                      100.00 CNY
+  Equity:Transfer:Misc                                       -100.00 CNY

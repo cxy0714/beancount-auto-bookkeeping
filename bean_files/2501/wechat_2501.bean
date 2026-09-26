@@ -1,0 +1,43 @@
+; ==================================================
+; 微信 2501 自动生成 - 审计面板
+; 1. Excel 原始总行数:     3
+; 2. 成功解析处理行数:     3
+; 3. 忽略（京东账单负责）: 0
+; 4. 未能处理行数:         0
+; --------------------------------------------------
+; [核对] 3 + 0 = 3
+; 状态: ✅ 完美对应
+; ==================================================
+
+2025-01-07 * "示例书店" "技术图书"
+  time: "2025-01-07 19:00:00"
+  type: "商户消费"
+  payee_raw: "示例书店"
+  goods: "技术图书"
+  flow: "支出"
+  status: "支付成功"
+  source: "微信"
+  Expenses:Entertainment:Culture:Book                                             40.00 CNY
+  Assets:Cash:Wechat:LingQian
+
+2025-01-11 * "示例餐厅" "午餐"
+  time: "2025-01-11 12:30:00"
+  type: "商户消费"
+  payee_raw: "示例餐厅"
+  goods: "午餐"
+  flow: "支出"
+  status: "支付成功"
+  source: "微信"
+  Expenses:Food:Restaurant                                             30.00 CNY
+  Assets:Cash:Wechat:LingQian
+
+2025-01-15 * "示例用户" "红包"
+  time: "2025-01-15 09:00:00"
+  type: "转账"
+  payee_raw: "示例用户"
+  goods: "红包"
+  flow: "收入"
+  status: "支付成功"
+  source: "微信"
+  Assets:Cash:Wechat:LingQian                                  50.00 CNY
+  Equity:Transfer:Misc

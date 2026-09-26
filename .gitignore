@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# 日志与临时文件
+*.log
+tmp/
+tmp_*
+logs/
+
+# 自动生成的本地缓存
+reports/prices_cache.json
+*.picklecache
+.*.picklecache
+bean_files/.backups/
+*.bean.bak
+
+# Excel 临时文件
+~*.xlsx

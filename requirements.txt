@@ -1,0 +1,8 @@
+beancount>=2.3
+fava
+pandas
+openpyxl
+pdfplumber
+PyYAML
+scipy
+matplotlib

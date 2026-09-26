@@ -1,0 +1,23 @@
+; ==================================================
+; 支付宝基金 2501 自动生成
+; 共处理基金交易: 1 笔（每笔生成两条分录）
+; ==================================================
+
+2025-01-08 * "示例基金公司" "示例稳健基金A-买入"
+  time: "2025-01-08 10:00:00"
+  type: "投资理财"
+  payee_raw: "示例基金公司"
+  goods: "示例稳健基金A-买入"
+  flow: "支出"
+  status: "交易成功"
+  remark: "虚拟基金申购"
+  source: "支付宝"
+  Assets:Invest:Fund:Pending                                  999.00 CNY
+  Expenses:Invest:Fee                                           1.00 CNY
+  Assets:Cash:Bank:BankA:1001:CNY                           -1000.00 CNY
+
+2025-01-08 * "示例基金公司" "示例稳健基金A-买入-确认"
+  confirm_date: "2025-01-08"
+  Assets:Invest:Fund:FUND999999                                 1000.0000 FUND999999 {0.9990 CNY}
+  Assets:Invest:Fund:Pending                                 -999.00 CNY
+  Equity:Rounding
