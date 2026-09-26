@@ -138,6 +138,18 @@ python 脚本/fund_report.py
 
 ---
 
+## 回溯记账与对账
+
+补记过去月份时，系统提供一套机械化的期初反推与对账工具：
+
+- `restructure_main_bean.py`：自动判断 FIX/ADD 模式，改写 `main.bean`，把旧 init 变成 balance 断言。
+- `verify_period.py`：生成银行/基金每日 balance sidecar，用 delta-jump 一次列出所有错误日期。
+- `inspect_date.py`：精查某一天，横向对照银行/支付宝/微信/京东原始记录与 bean 分录。
+- `read_bank_balance.py`：从银行 Excel 反推期初和每日末余额。
+- `back_fund.py`：根据下期持仓反推基金期初份额。
+
+完整说明见 [`脚本/回溯记账说明.md`](脚本/回溯记账说明.md)。
+
 ## 已知限制
 
 - 虚拟原始 PDF 使用简单表格/文本生成，目的是演示 processor 的解析路径，不保证覆盖真实 PDF 的所有版式。

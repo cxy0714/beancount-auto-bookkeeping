@@ -33,22 +33,29 @@ ROOT = Path(__file__).parent.parent
 # ─────────────────────────────────────────────────────────
 
 def _show_bank(period: str, target: date) -> None:
-    excel_path = ROOT / f"整理后数据/{period}/银行卡1001_{period}.xlsx"
-    if not excel_path.exists():
+    excel_dir = ROOT / "整理后数据" / period
+    bank_files = sorted(excel_dir.glob(f"银行卡*_{period}.xlsx"))
+    if not bank_files:
         print("  （找不到银行 Excel）")
         return
-    df = pd.read_excel(excel_path)
-    df["交易时间"] = pd.to_datetime(df["交易时间"])
-    mask = df["交易时间"].dt.date == target
-    rows = df[mask]
-    if rows.empty:
+
+    shown = 0
+    for excel_path in bank_files:
+        df = pd.read_excel(excel_path)
+        df["交易时间"] = pd.to_datetime(df["交易时间"])
+        mask = df["交易时间"].dt.date == target
+        rows = df[mask]
+        if rows.empty:
+            continue
+        card = excel_path.stem.split("_")[0]
+        for _, row in rows.iterrows():
+            print(
+                f"  [{card}] {row['交易时间']}  {row['收/支']:2}  "
+                f"¥{float(row['金额(元)']):>10.2f}  余额 {float(row['余额']):>10.2f}  {row['交易对方']}"
+            )
+            shown += 1
+    if shown == 0:
         print("  （该日无银行交易）")
-        return
-    for _, row in rows.iterrows():
-        print(
-            f"  {row['交易时间']}  {row['收/支']:2}  ¥{float(row['金额(元)']):>10.2f}"
-            f"  余额 {float(row['余额']):>10.2f}  {row['交易对方']}"
-        )
 
 
 # ─────────────────────────────────────────────────────────
