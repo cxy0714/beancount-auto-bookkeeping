@@ -3,56 +3,67 @@ option "operating_currency" "CNY"
 ; 演示账本账户表（普通虚拟账户）
 ; 所有账户均为示例，不对应任何真实用户。
 
+; 账户命名说明:
+; Checking = 活期账户, 日常消费/转账/取现
+; Savings = 储蓄/理财账户, 银行备用金或平台理财
+; Balance = 支付平台钱包余额
+; Foreign = 外币账户
+; 支付平台为什么有两个: 原系统把平台余额和平台理财分开记账
+; Balance 从余额扣款, Savings 从理财余额扣款
+
 2019-01-21 commodity FUND999999
   name: "示例基金"
 
-2019-01-21 open Assets:Cash:Alipay:Balance
-2019-01-21 open Assets:Cash:Alipay:Savings
-2019-01-21 open Assets:Cash:Bank:BankA:Checking
-2019-01-21 open Assets:Cash:Bank:BankA:EUR
-2019-01-21 open Assets:Cash:Bank:BankA:Foreign
-2019-01-21 open Assets:Cash:Bank:BankA:Foreign:EUR
-2019-01-21 open Assets:Cash:Bank:BankA:Foreign:USD
-2019-01-21 open Assets:Cash:Bank:BankA:Savings
-2019-01-21 open Assets:Cash:Bank:BankA:USD
-2019-01-21 open Assets:Cash:Bank:BankB:Checking
-2019-01-21 open Assets:Cash:Bank:BankC:Checking
-2019-01-21 open Assets:Cash:JD:Balance
-2019-01-21 open Assets:Cash:JD:Savings
-2019-01-21 open Assets:Cash:WeChat:Balance
-2019-01-21 open Assets:Cash:WeChat:Savings
-2019-01-21 open Assets:Invest:Fund:FUND999999
-2019-01-21 open Assets:Invest:Fund:Pending
-2019-01-21 open Assets:Invest:Fund:SalePending
-2019-01-21 open Assets:Prepaid:Transit
-2019-01-21 open Equity:Internal
-2019-01-21 open Equity:Opening-Balances
-2019-01-21 open Equity:Prepaid
-2019-01-21 open Equity:Rounding
-2019-01-21 open Equity:Transfer
-2019-01-21 open Equity:Unknown
-2019-01-21 open Expenses:Beauty
-2019-01-21 open Expenses:Education
-2019-01-21 open Expenses:Entertainment
-2019-01-21 open Expenses:Fees
-2019-01-21 open Expenses:Food
-2019-01-21 open Expenses:Health
-2019-01-21 open Expenses:Insurance
-2019-01-21 open Expenses:Other
-2019-01-21 open Expenses:Service
-2019-01-21 open Expenses:Shopping
-2019-01-21 open Expenses:Tax
-2019-01-21 open Expenses:Transport
-2019-01-21 open Expenses:Travel
-2019-01-21 open Expenses:Unknown
-2019-01-21 open Income:Exchange
-2019-01-21 open Income:Investment
-2019-01-21 open Income:Other
-2019-01-21 open Income:Refund
-2019-01-21 open Income:Reimbursement
-2019-01-21 open Income:Salary
-2019-01-21 open Income:Unknown
-2019-01-21 open Liabilities:ConsumerCredit
-2019-01-21 open Liabilities:CreditCard:CNY
-2019-01-21 open Liabilities:CreditCard:USD
+2019-01-21 open Assets:Cash:Alipay:YuE  ; 支付宝余额
+2019-01-21 open Assets:Cash:Alipay:YuEBao  ; 支付宝理财（余额宝类）
+2019-01-21 open Assets:Cash:Bank:BankA:Checking  ; 示例银行A 活期账户
+2019-01-21 open Assets:Cash:Bank:BankA:EUR  ; 示例银行A 欧元账户
+2019-01-21 open Assets:Cash:Bank:BankA:Foreign  ; 示例银行A 外币父级（勿直接记账）
+2019-01-21 open Assets:Cash:Bank:BankA:Foreign:EUR  ; 示例银行A 外币-欧元
+2019-01-21 open Assets:Cash:Bank:BankA:Foreign:USD  ; 示例银行A 外币-美元
+2019-01-21 open Assets:Cash:Bank:BankA:Savings  ; 示例银行A 储蓄/备用金
+2019-01-21 open Assets:Cash:Bank:BankA:USD  ; 示例银行A 美元账户
+2019-01-21 open Assets:Cash:Bank:BankB:Checking  ; 示例银行B 活期账户
+2019-01-21 open Assets:Cash:Bank:BankC:Checking  ; 示例银行C 活期账户
+2019-01-21 open Assets:Cash:Jingdong:YuE  ; 京东余额
+2019-01-21 open Assets:Cash:Jingdong:XiaoJinKu  ; 京东理财/小金库
+2019-01-21 open Assets:Cash:Wechat:LingQian  ; 微信零钱
+2019-01-21 open Assets:Cash:Wechat:LingQianTong  ; 微信零钱通/理财
+2019-01-21 open Assets:Invest:Fund:FUND999999  ; 示例基金持仓
+2019-01-21 open Assets:Invest:Fund:Pending  ; 基金申购在途
+2019-01-21 open Assets:Invest:Fund:SalePending  ; 基金赎回在途
+2019-01-21 open Assets:Prepaid:Transit  ; 预付交通/骑行
+2019-01-21 open Equity:Internal  ; 内部结算/家庭往来
+2019-01-21 open Equity:Opening-Balances  ; 期初余额
+2019-01-21 open Equity:Prepaid  ; 预付账户平账
+2019-01-21 open Equity:Rounding  ; 四舍五入差额
+2019-01-21 open Equity:Transfer  ; 账户间转账/提现/充值
+2019-01-21 open Equity:Unknown  ; 未分类权益占位
+2019-01-21 open Expenses:Beauty  ; 美容个护
+2019-01-21 open Expenses:Education  ; 教育/图书
+2019-01-21 open Expenses:Entertainment  ; 娱乐
+2019-01-21 open Expenses:Fees  ; 手续费
+2019-01-21 open Expenses:Food  ; 餐饮
+2019-01-21 open Expenses:Health  ; 医疗健康
+2019-01-21 open Expenses:Insurance  ; 保险
+2019-01-21 open Expenses:Other  ; 其他支出
+2019-01-21 open Expenses:Service  ; 生活服务
+2019-01-21 open Expenses:Shopping  ; 购物
+2019-01-21 open Expenses:Tax  ; 税费
+2019-01-21 open Expenses:Transport  ; 交通
+2019-01-21 open Expenses:Travel  ; 旅行
+2019-01-21 open Expenses:Unknown  ; 未分类支出（待规则细化）
+2019-01-21 open Income:Exchange  ; 汇兑损益
+2019-01-21 open Income:Investment  ; 投资收益/利息
+2019-01-21 open Income:Other  ; 其他收入
+2019-01-21 open Income:Refund  ; 退款
+2019-01-21 open Income:Reimbursement  ; 报销
+2019-01-21 open Income:Salary  ; 工资
+2019-01-21 open Income:Unknown  ; 未分类收入（待规则细化）
+2019-01-21 open Liabilities:HuaBei  ; 支付宝花呗
+2019-01-21 open Liabilities:Jingdong:XianXiangHouFu  ; 京东先享后付
+2019-01-21 open Liabilities:Jingdong:BaiTiao  ; 京东白条
+2019-01-21 open Liabilities:Meituan:Yuefu  ; 美团月付
+2019-01-21 open Liabilities:CreditCard:CNY  ; 信用卡-人民币
+2019-01-21 open Liabilities:CreditCard:USD  ; 信用卡-美元
 

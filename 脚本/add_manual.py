@@ -25,11 +25,16 @@ MANUAL_BEAN = ROOT / "bean_files" / "manual.bean"
 PAYMENT_ACCOUNTS = [
     ("示例银行A 储蓄卡", "Assets:Cash:Bank:BankA:Checking"),
     ("示例银行A 信用卡", "Liabilities:CreditCard:CNY"),
-    ("支付宝余额",       "Assets:Cash:Alipay:Balance"),
-    ("支付宝理财",       "Assets:Cash:Alipay:Savings"),
-    ("微信余额",         "Assets:Cash:WeChat:Balance"),
-    ("微信理财",         "Assets:Cash:WeChat:Savings"),
-    ("消费信贷",         "Liabilities:ConsumerCredit"),
+    ("支付宝余额",       "Assets:Cash:Alipay:YuE"),
+    ("支付宝余额宝",     "Assets:Cash:Alipay:YuEBao"),
+    ("微信零钱",         "Assets:Cash:Wechat:LingQian"),
+    ("微信零钱通",       "Assets:Cash:Wechat:LingQianTong"),
+    ("京东余额",         "Assets:Cash:Jingdong:YuE"),
+    ("京东小金库",       "Assets:Cash:Jingdong:XiaoJinKu"),
+    ("支付宝花呗",       "Liabilities:HuaBei"),
+    ("京东白条",         "Liabilities:Jingdong:BaiTiao"),
+    ("京东先享后付",     "Liabilities:Jingdong:XianXiangHouFu"),
+    ("美团月付",         "Liabilities:Meituan:Yuefu"),
 ]
 
 INCOME_ACCOUNTS = [

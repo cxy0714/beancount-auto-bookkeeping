@@ -18,7 +18,7 @@
   status: "交易成功"
   source: "支付宝"
   Expenses:Food                                                25.00 CNY
-  Assets:Cash:Alipay:Savings
+  Assets:Cash:Alipay:YuEBao
 
 2025-01-06 * "示例超市" "日用品"
   time: "2025-01-06 18:30:00"
@@ -29,7 +29,7 @@
   status: "交易成功"
   source: "支付宝"
   Expenses:Food                                            88.00 CNY
-  Assets:Cash:Alipay:Savings
+  Assets:Cash:Alipay:YuEBao
 
 2025-01-10 * "示例地铁" "地铁票"
   time: "2025-01-10 08:00:00"
@@ -40,7 +40,7 @@
   status: "交易成功"
   source: "支付宝"
   Expenses:Transport                                            4.00 CNY
-  Assets:Cash:Alipay:Balance
+  Assets:Cash:Alipay:YuE
 
 2025-01-15 * "示例用户" "朋友转账"
   time: "2025-01-15 09:00:00"
@@ -50,5 +50,5 @@
   flow: "收入"
   status: "交易成功"
   source: "支付宝"
-  Assets:Cash:Alipay:Balance                                  100.00 CNY
+  Assets:Cash:Alipay:YuE                                      100.00 CNY
   Equity:Transfer                                            -100.00 CNY
